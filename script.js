@@ -48,7 +48,7 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
 */
           });
 
-          $("#next-page").on(clickHandler, function() {
+          $('#next-page').on('mousedown touchstart',function(){
             console.log('clic next');
             var focusInput = $('.questions').find('.active');
             nextMaster('nextpage');
