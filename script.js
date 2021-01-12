@@ -1,6 +1,7 @@
 var counter = 1;
 var color = "";
 var lider = "";
+var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
         $(document).ready(function() {
 
           var erroEle = $('.error-message'),
@@ -37,14 +38,20 @@ var lider = "";
               nextMaster('keypress');
               event.preventDefault();
             }
-
+/*
             $('#next-page').click(function() {
               console.log('clic next');
               var focusInput = $('.questions').find('.active');
               nextMaster('nextpage');
 
             })
+*/
+          });
 
+          $("#next-page").on(clickHandler, function() {
+            console.log('clic next');
+            var focusInput = $('.questions').find('.active');
+            nextMaster('nextpage');
           });
 
           function nextMaster(type) {
