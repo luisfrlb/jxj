@@ -1,4 +1,6 @@
 var counter = 1;
+var color = "";
+var lider = "";
         $(document).ready(function() {
 
           var erroEle = $('.error-message'),
@@ -46,7 +48,8 @@ var counter = 1;
           });
 
           function nextMaster(type) {
-            
+            color = $('#uname').val();
+            lider = $('#name').val();
             var focusInput = $('.questions').find('.active');
             if (focusInput.val() != '') {
 
@@ -129,6 +132,7 @@ var counter = 1;
           var li = document.getElementById("uno").style.opacity;
           var li2 = document.getElementById("dos").style.opacity;
           if (li == "1") {
+          
             console.log("li "+li);
             document.getElementById("uno").animate({
               marginTop: '-150px',
@@ -146,9 +150,14 @@ var counter = 1;
             document.getElementById("dos").style.opacity =1;
             document.getElementById("dos").style.marginTop =  '0px';
 
+            $('#lider').before(lider.toUpperCase()+" : ");
+            $('#color').after("Líder "+color);
+            
+            document.getElementById("fondo").style.padding =  '7em 2em';
           }
-          else if (li2 == "1") {
-            console.log("li "+li);
+          else if (li2 == "1" && counter > 13) {
+
+            console.log("l2 "+li2+ " counter "+counter);
             document.getElementById("dos").animate({
               marginTop: '-150px',
               opacity: 0
@@ -173,7 +182,7 @@ var counter = 1;
             }, 200);
 
             focusInput.removeClass('active');
-            counter++;
+            
   
             var nextli = focusInput.closest('li').next('li');
   
@@ -185,7 +194,7 @@ var counter = 1;
             nextli.find('input').focus().addClass('active');
 
           }
-      
+          counter++;
           /*
           if (focusInput.attr('id') == 'viewpswd') {
             $("[data-ref='" + focusInput.attr('id') + "']")
