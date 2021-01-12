@@ -157,6 +157,7 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
             var width = $(window).width()
             console.log ('width:'+width);
             if (width <= 980) {
+              console.log('mobile');
               document.getElementById("uno").style.opacity =0;
               document.getElementById("uno").style.marginTop =  '-150px';
 
@@ -170,6 +171,7 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
               document.getElementById("fondo").style.padding =  '15em 2em';
             }
             else{
+              console.log('pc');
               document.getElementById("uno").style.opacity =0;
               document.getElementById("uno").style.marginTop =  '-150px';
 
