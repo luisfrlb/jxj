@@ -49,7 +49,7 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
           });
 
           $('#next-page').on('mousedown touchstart',function(){
-            //console.log('clic next');
+            console.log('clic next');
             var focusInput = $('.questions').find('.active');
             nextMaster('nextpage');
           });
@@ -60,7 +60,7 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
             lider = $('#name').val();
             var focusInput = $('.questions').find('.active');
             if (focusInput.val() != '') {
-              //console.log('if val not empty');
+              console.log('if val not empty '+type);
               if ((focusInput.attr('name') == 'name' || focusInput.attr('name') == 'username') && focusInput.val().length < 2) {
                 errorMessage(erroEle, "isn't your " + focusInput.attr('name') + " bit small. ", 'visible', 1);
               } else if (focusInput.attr('name') == 'email' && !validateEmail(focusInput.val())) {
@@ -140,9 +140,10 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
           
           var li = document.getElementById("uno").style.opacity;
           var li2 = document.getElementById("dos").style.opacity;
+          console.log("li "+li+" `/ l2"+li2);
           if (li == "1") {
           
-            console.log("li "+li);
+            
             document.getElementById("uno").animate({
               marginTop: '-150px',
               opacity: 0
@@ -183,28 +184,28 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
               $('#color').after("Líder "+color);
               
               document.getElementById("fondo").style.padding =  '10em 2em';
+              document.getElementById("fondo").focus();
             }
 
           }
-          else if (li2 == "1" && counter > 13) {
+          else if (li2 == "1" && li == "0") {
 
           //  console.log("l2 "+li2+ " counter "+counter);
             document.getElementById("dos").animate({
               marginTop: '-150px',
               opacity: 0
             }, 200);
-
-            document.getElementById("tres").animate({
+            document.getElementById("dos").style.opacity =0;
+            document.getElementById("dos").style.marginTop =  '-150px';
+          
+            document.getElementById("wf").animate({
               marginTop: '0px',
               opacity: 1
             }, 200);
-            
-            document.getElementById("dos").style.opacity =0;
-            document.getElementById("dos").style.marginTop =  '-150px';
-
-            document.getElementById("tres").style.opacity =1;
-            document.getElementById("tres").style.marginTop =  '0px';
-
+  
+            document.getElementById("wf").style.opacity =1;
+            document.getElementById("wf").style.display = 'block';
+            $('#next-page').css('opacity', 0);
           }
           else {
             focusInput.closest('li').animate({
