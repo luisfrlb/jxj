@@ -160,7 +160,7 @@ var lider = "";
           }
           else if (li2 == "1" && counter > 13) {
 
-            console.log("l2 "+li2+ " counter "+counter);
+          //  console.log("l2 "+li2+ " counter "+counter);
             document.getElementById("dos").animate({
               marginTop: '-150px',
               opacity: 0
@@ -186,6 +186,7 @@ var lider = "";
 
             focusInput.removeClass('active');
             
+            alert('furulo');
   
             var nextli = focusInput.closest('li').next('li');
   
