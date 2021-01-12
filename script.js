@@ -152,19 +152,34 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
               marginTop: '0px',
               opacity: 1
             }, 200);
-            
-            document.getElementById("uno").style.opacity =0;
-            document.getElementById("uno").style.marginTop =  '-150px';
 
-            document.getElementById("dos").style.opacity =1;
-            document.getElementById("dos").style.marginTop =  '0px';
-            document.getElementById("dos-texto").style.marginTop =  '-220px';
+            var userAgent = window.navigator.userAgent;
+            if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)||  userAgent.match(/Android/i)) {
+              document.getElementById("uno").style.opacity =0;
+              document.getElementById("uno").style.marginTop =  '-150px';
 
-            $('#lider').before(lider.toUpperCase()+" : ");
-            $('#color').after("Líder "+color);
-            
-            document.getElementById("fondo").style.padding =  '10em 2em';
+              document.getElementById("dos").style.opacity =1;
+              document.getElementById("dos").style.marginTop =  '0px';
+              document.getElementById("dos-texto").style.marginTop =  '-325px';
 
+              $('#lider').before(lider.toUpperCase()+" : ");
+              $('#color').after("Líder "+color);
+              
+              document.getElementById("fondo").style.padding =  '15em 2em';
+            }
+            else{
+              document.getElementById("uno").style.opacity =0;
+              document.getElementById("uno").style.marginTop =  '-150px';
+
+              document.getElementById("dos").style.opacity =1;
+              document.getElementById("dos").style.marginTop =  '0px';
+              document.getElementById("dos-texto").style.marginTop =  '-220px';
+
+              $('#lider').before(lider.toUpperCase()+" : ");
+              $('#color').after("Líder "+color);
+              
+              document.getElementById("fondo").style.padding =  '10em 2em';
+            }
 
           }
           else if (li2 == "1" && counter > 13) {
