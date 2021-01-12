@@ -155,6 +155,7 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
 
             
             var width = $(window).width()
+            console.log ('width:'+width);
             if (width < 720) {
               document.getElementById("uno").style.opacity =0;
               document.getElementById("uno").style.marginTop =  '-150px';
