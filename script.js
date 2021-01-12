@@ -39,7 +39,7 @@ var lider = "";
             }
 
             $('#next-page').click(function() {
-              
+              console.log('clic next');
               var focusInput = $('.questions').find('.active');
               nextMaster('nextpage');
 
@@ -53,7 +53,7 @@ var lider = "";
             lider = $('#name').val();
             var focusInput = $('.questions').find('.active');
             if (focusInput.val() != '') {
-              console.log('if val not empty');
+              //console.log('if val not empty');
               if ((focusInput.attr('name') == 'name' || focusInput.attr('name') == 'username') && focusInput.val().length < 2) {
                 errorMessage(erroEle, "isn't your " + focusInput.attr('name') + " bit small. ", 'visible', 1);
               } else if (focusInput.attr('name') == 'email' && !validateEmail(focusInput.val())) {
@@ -67,10 +67,10 @@ var lider = "";
                 errorMessage(erroEle, '', 'hidden', 0);
               }
             } else if (type == 'keypress') {
-              console.log('if kkeypress');
+              //console.log('if kkeypress');
               errorMessage(erroEle, 'please enter your ' + focusInput.attr('name'), 'visible', 1);
             }
-            console.log('fin');
+            //console.log('fin');
           }
 /*
           $("input[type='text']").keyup(function(event) {
