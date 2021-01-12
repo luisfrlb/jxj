@@ -149,11 +149,14 @@ var lider = "";
 
             document.getElementById("dos").style.opacity =1;
             document.getElementById("dos").style.marginTop =  '0px';
+            document.getElementById("dos-texto").style.marginTop =  '-220px';
 
             $('#lider').before(lider.toUpperCase()+" : ");
             $('#color').after("Líder "+color);
             
             document.getElementById("fondo").style.padding =  '7em 2em';
+
+
           }
           else if (li2 == "1" && counter > 13) {
 
