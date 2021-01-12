@@ -49,7 +49,7 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
           });
 
           $('#next-page').on('mousedown touchstart',function(){
-            console.log('clic next');
+            //console.log('clic next');
             var focusInput = $('.questions').find('.active');
             nextMaster('nextpage');
           });
@@ -163,7 +163,7 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
             $('#lider').before(lider.toUpperCase()+" : ");
             $('#color').after("Líder "+color);
             
-            document.getElementById("fondo").style.padding =  '7em 2em';
+            document.getElementById("fondo").style.padding =  '10em 2em';
 
 
           }
@@ -195,7 +195,7 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
 
             focusInput.removeClass('active');
             
-            alert('furulo');
+         //   alert('furulo');
   
             var nextli = focusInput.closest('li').next('li');
   

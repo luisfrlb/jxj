@@ -16,7 +16,7 @@ body {
   text-align: center;
 }
 .container {
-  background: #B7BED8;
+  background: #c3ccee;
   color: #6A79A6;
   display: inline-block;
   padding: 0em 2em;
@@ -158,7 +158,7 @@ body {
   font-size: 14px;
   margin-top: 10px;
   padding-bottom: 30px;
-  background: #B7BED8;
+  background: #c3ccee;
 }
 ::-webkit-input-placeholder {
   font-size: 0.9em;
