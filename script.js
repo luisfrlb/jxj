@@ -153,8 +153,9 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
               opacity: 1
             }, 200);
 
-            var userAgent = window.navigator.userAgent;
-            if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)||  userAgent.match(/Android/i)) {
+            
+            var width = $(window).width()
+            if (width < 720) {
               document.getElementById("uno").style.opacity =0;
               document.getElementById("uno").style.marginTop =  '-150px';
 
