@@ -164,7 +164,7 @@ var clickHandler = ("ontouchstart" in window ? "touchend" : "click")
 
               document.getElementById("dos").style.opacity =1;
               document.getElementById("dos").style.marginTop =  '0px';
-              document.getElementById("dos-texto").style.marginTop =  '-325px';
+              document.getElementById("dos-texto").style.marginTop =  '-375px';
 
               $('#lider').before(lider.toUpperCase()+" : ");
               $('#color').after("Líder "+color);
