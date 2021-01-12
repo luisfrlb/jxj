@@ -1,4 +1,6 @@
 var counter = 1;
+var color = "";
+var lider = "";
         $(document).ready(function() {
 
           var erroEle = $('.error-message'),
@@ -29,9 +31,6 @@ var counter = 1;
 
           });
 
-          if (focusInput.val() != '') {
-            $('#next-page').css('opacity', 1);
-          }
 
           $(document).keypress(function(event) {
             if (event.which == 13) {
@@ -40,6 +39,7 @@ var counter = 1;
             }
 
             $('#next-page').click(function() {
+              
               var focusInput = $('.questions').find('.active');
               nextMaster('nextpage');
 
@@ -48,8 +48,11 @@ var counter = 1;
           });
 
           function nextMaster(type) {
+            color = $('#uname').val();
+            lider = $('#name').val();
             var focusInput = $('.questions').find('.active');
             if (focusInput.val() != '') {
+
               if ((focusInput.attr('name') == 'name' || focusInput.attr('name') == 'username') && focusInput.val().length < 2) {
                 errorMessage(erroEle, "isn't your " + focusInput.attr('name') + " bit small. ", 'visible', 1);
               } else if (focusInput.attr('name') == 'email' && !validateEmail(focusInput.val())) {
@@ -57,9 +60,9 @@ var counter = 1;
               } else if (focusInput.attr('name') == 'phone' && !validatePhone(focusInput.val())) {
                 errorMessage(erroEle, "It doesn't look like a " + focusInput.attr('name'), 'visible', 1);
               } else {
-
+                //console.log ("type "+focusInput);
                 if (type != 'navi') showLi(focusInput);
-                $('#next-page').css('opacity', 0);
+                /*$('#next-page').css('opacity', 0);/*/
                 errorMessage(erroEle, '', 'hidden', 0);
               }
             } else if (type == 'keypress') {
@@ -67,7 +70,7 @@ var counter = 1;
             }
 
           }
-
+/*
           $("input[type='text']").keyup(function(event) {
             var focusInput = $(this);
             if (focusInput.val().length > 1) {
@@ -82,7 +85,7 @@ var counter = 1;
               $('#next-page').css('opacity', 0);
             }
           });
-
+*/
           $("#password").keyup(function(event) {
             var focusInput = $(this);
             $("#viewpswd").val(focusInput.val());
@@ -123,13 +126,79 @@ var counter = 1;
 
         function showLi(focusInput) {
 
-          focusInput.closest('li').animate({
-            marginTop: '-150px',
-            opacity: 0
-          }, 200);
+     
 
-          console.log(focusInput.closest('li'));
+          
+          var li = document.getElementById("uno").style.opacity;
+          var li2 = document.getElementById("dos").style.opacity;
+          if (li == "1") {
+          
+            console.log("li "+li);
+            document.getElementById("uno").animate({
+              marginTop: '-150px',
+              opacity: 0
+            }, 200);
 
+            document.getElementById("dos").animate({
+              marginTop: '0px',
+              opacity: 1
+            }, 200);
+            
+            document.getElementById("uno").style.opacity =0;
+            document.getElementById("uno").style.marginTop =  '-150px';
+
+            document.getElementById("dos").style.opacity =1;
+            document.getElementById("dos").style.marginTop =  '0px';
+            document.getElementById("dos-texto").style.marginTop =  '-220px';
+
+            $('#lider').before(lider.toUpperCase()+" : ");
+            $('#color').after("Líder "+color);
+            
+            document.getElementById("fondo").style.padding =  '7em 2em';
+
+
+          }
+          else if (li2 == "1" && counter > 13) {
+
+            console.log("l2 "+li2+ " counter "+counter);
+            document.getElementById("dos").animate({
+              marginTop: '-150px',
+              opacity: 0
+            }, 200);
+
+            document.getElementById("tres").animate({
+              marginTop: '0px',
+              opacity: 1
+            }, 200);
+            
+            document.getElementById("dos").style.opacity =0;
+            document.getElementById("dos").style.marginTop =  '-150px';
+
+            document.getElementById("tres").style.opacity =1;
+            document.getElementById("tres").style.marginTop =  '0px';
+
+          }
+          else {
+            focusInput.closest('li').animate({
+              marginTop: '-150px',
+              opacity: 0
+            }, 200);
+
+            focusInput.removeClass('active');
+            
+  
+            var nextli = focusInput.closest('li').next('li');
+  
+            nextli.animate({
+              marginTop: '0px',
+              opacity: 1
+            }, 200);
+  
+            nextli.find('input').focus().addClass('active');
+
+          }
+          counter++;
+          /*
           if (focusInput.attr('id') == 'viewpswd') {
             $("[data-ref='" + focusInput.attr('id') + "']")
               .addClass('done').html('password');
@@ -137,18 +206,8 @@ var counter = 1;
           } else {
             $("[data-ref='" + focusInput.attr('id') + "']").addClass('done').html(focusInput.val());
           }
+          */
 
-          focusInput.removeClass('active');
-          counter++;
-
-          var nextli = focusInput.closest('li').next('li');
-
-          nextli.animate({
-            marginTop: '0px',
-            opacity: 1
-          }, 200);
-
-          nextli.find('input').focus().addClass('active');
 
         }
 

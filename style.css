@@ -62,7 +62,7 @@ body {
   margin: 85px 0 0 0;
 }
 .container .sign-form #next-page {
-  opacity: 0;
+  opacity: 1;
   width: 40px;
   height: 40px;
   display: inline-block;
